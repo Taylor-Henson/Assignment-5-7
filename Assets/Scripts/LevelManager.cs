@@ -1,19 +1,48 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    //makes the class static 
+    //makes it a singleton
     public static LevelManager instance;
 
-    //static variables
+    //variables
+    public AudioClip[] music;
+    public AudioClip[] sfx;
+    public float musicVol;
+    public float sfxVol;
 
-    #region Singleton
+    AudioSource audioSource;
+
+    public string difficulty = "Easy";
+
+    #region start and update
+    public void Start()
+    {
+        //playerPrefs
+
+        //difficulty
+
+        if (PlayerPrefs.HasKey("Difficulty") == true)//if there is a playerpref
+        {
+            difficulty = PlayerPrefs.GetString("Difficulty");//get it
+        }
+        else
+        {
+            PlayerPrefs.SetString("Difficulty", "Easy");//set to easy
+        }
+    }
+
+    public void Update()
+    {
+        PlayerPrefs.SetString("Difficulty", difficulty);//set playerpref to new state
+    }
+
+    #endregion
+
+    #region singleton
+
     void Awake()
     {
-        //keeps the LevelManager in each scene without duplicating
-
         if (instance == null)
         {
             //store reference to instance
@@ -24,23 +53,32 @@ public class LevelManager : MonoBehaviour
         else
         {
             //another instance has been made so destroy it
-            //
             //print("do destroy");
             Destroy(gameObject);
         }
     }
     #endregion
 
-    #region Buttons
+    #region audio
 
-    public void StartButton()
+    public void PlayMusic(int clipNumber)
     {
-        SceneManager.LoadScene("DummyGame");
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(music[clipNumber], musicVol);
+    }
+
+    public void PlaySfx(int clipNumber)
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(sfx[clipNumber], sfxVol);
+    }
+
+    public void StopClip()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
     }
 
     #endregion
-    private void Start()
-    {
 
-    }
 }
