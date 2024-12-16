@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -29,7 +31,14 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
+    #region Buttons
 
+    public void StartButton()
+    {
+        SceneManager.LoadScene("DummyGame");
+    }
+
+    #endregion
     private void Start()
     {
 
