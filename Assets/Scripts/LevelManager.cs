@@ -1,19 +1,29 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LevelManager : MonoBehaviour
 {
+    #region Variables and References
     //makes it a singleton
     public static LevelManager instance;
 
     //variables
+
+    //audioClips
     public AudioClip[] music;
     public AudioClip[] sfx;
-    public float musicVol;
-    public float sfxVol;
-
-    AudioSource audioSource;
 
     public string difficulty = "Easy";
+
+    //playerprefs volume keys
+    public const string MUSIC_KEY = "musicVolume";
+    public const string SFX_KEY = "sfxVolume";
+
+    //references
+    AudioSource audioSource;
+    public AudioMixer audioMixer;
+
+    #endregion
 
     #region start and update
     public void Start()
@@ -56,27 +66,52 @@ public class LevelManager : MonoBehaviour
             //print("do destroy");
             Destroy(gameObject);
         }
+
+        LoadVolume(); // loads playerprefs for volume
     }
     #endregion
 
     #region audio
 
+    //plays audio
+    public void PlaySFX(int clipNumber)
+    {
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>(); //get sfx audiosource
+        audioSource.PlayOneShot(sfx[clipNumber]); //play sfx by clip number
+    }
+
     public void PlayMusic(int clipNumber)
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(music[clipNumber], musicVol);
+        audioSource = GameObject.Find("Music").GetComponent<AudioSource>(); //get music audiosource
+        audioSource.PlayOneShot(music[clipNumber]); //play music by clip number
     }
 
-    public void PlaySfx(int clipNumber)
+    //stops audio
+    public void StopSFX()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(sfx[clipNumber], sfxVol);
-    }
-
-    public void StopClip()
-    {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
         audioSource.Stop();
+    }
+
+    public void StopMusic()
+    {
+        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        audioSource.Stop();
+    }
+
+    #endregion
+
+    #region PlayerPrefs
+
+    void LoadVolume() // volume saved in volumeSettings
+    {
+        //sets volume floats to stored keys, if not to 1
+        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 1f);
+
+        //sets audio mixer values to the previes floats, converted to log10
+        audioMixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
+        audioMixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
     }
 
     #endregion

@@ -25,9 +25,25 @@ public class FrontEnd : MonoBehaviour
         SceneManager.LoadScene("DummyGame");
     }
 
+    public void PressButton() // when a button is pressed
+    {
+        LevelManager.instance.PlaySFX(0);
+    }
+
+    public void ChangedSetting()
+    {
+        LevelManager.instance.PlaySFX(1);
+    }
+
+    public void Back()
+    {
+        LevelManager.instance.PlaySFX(2);
+    }
+
     //goes to main menu
     public void MainMenu()
     {
+        PressButton();
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         instructionsMenu.SetActive(false);
@@ -37,6 +53,7 @@ public class FrontEnd : MonoBehaviour
     //goes to options menu
     public void OptionsMenu()
     {
+        PressButton();
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
         difficultyMenu.SetActive(false);
@@ -46,6 +63,7 @@ public class FrontEnd : MonoBehaviour
     //goes to difficulty menu
     public void DifficultyMenu()
     {
+        PressButton();
         optionsMenu.SetActive(false);
         difficultyMenu.SetActive(true);
     }
@@ -53,6 +71,7 @@ public class FrontEnd : MonoBehaviour
     //goes to audio menu
     public void AudioMenu()
     {
+        PressButton();
         optionsMenu.SetActive(false);
         audioMenu.SetActive(true);
     }
@@ -60,6 +79,7 @@ public class FrontEnd : MonoBehaviour
     //goes to instructions menu
     public void InstructionsMenu()
     {
+        PressButton();
         mainMenu.SetActive(false);
         instructionsMenu.SetActive(true);
     }
@@ -67,6 +87,7 @@ public class FrontEnd : MonoBehaviour
     //goes to quit menu
     public void QuitMenu()
     {
+        PressButton();
         mainMenu.SetActive(false);
         quitMenu.SetActive(true);
     }
@@ -74,6 +95,7 @@ public class FrontEnd : MonoBehaviour
     //quits application
     public void QuitApplication()
     {
+        PressButton();
         Application.Quit();
     }
 
@@ -100,6 +122,27 @@ public class FrontEnd : MonoBehaviour
     #endregion
     private void Start()
     {
+        LevelManager.instance.PlayMusic(1); // plays frontend music
+    }
 
+    private void OnDisable()
+    {
+        LevelManager.instance.StopMusic(); // stops frontend music
+    }
+
+    private void Update() // test
+    {
+        if (Input.GetKeyDown("a"))
+        {
+            LevelManager.instance.PlaySFX(0);
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            LevelManager.instance.PlaySFX(1);
+        }
+        if (Input.GetKeyDown("d"))
+        {
+            LevelManager.instance.PlaySFX(2);
+        }
     }
 }
