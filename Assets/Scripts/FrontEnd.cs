@@ -135,6 +135,8 @@ public class FrontEnd : MonoBehaviour
     }
 
     #endregion
+
+    #region music on/off
     private void Start()
     {
         LevelManager.instance.PlayMusic(1); // plays frontend music
@@ -145,19 +147,5 @@ public class FrontEnd : MonoBehaviour
         LevelManager.instance.StopMusic(); // stops frontend music
     }
 
-    private void Update() // test
-    {
-        if (Input.GetKeyDown("a"))
-        {
-            LevelManager.instance.PlaySFX(0);
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            LevelManager.instance.PlaySFX(1);
-        }
-        if (Input.GetKeyDown("d"))
-        {
-            LevelManager.instance.PlaySFX(2);
-        }
-    }
+    #endregion
 }

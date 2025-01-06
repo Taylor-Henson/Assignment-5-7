@@ -20,7 +20,8 @@ public class LevelManager : MonoBehaviour
     public const string SFX_KEY = "sfxVolume";
 
     //references
-    AudioSource audioSource;
+    AudioSource musicSource;
+    AudioSource sfxSource;
     public AudioMixer audioMixer;
 
     #endregion
@@ -40,6 +41,10 @@ public class LevelManager : MonoBehaviour
         {
             PlayerPrefs.SetString("Difficulty", "Easy");//set to easy
         }
+
+        //refernces
+        musicSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        sfxSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -76,39 +81,36 @@ public class LevelManager : MonoBehaviour
     //plays audio
     public void PlaySFX(int clipNumber)
     {
-        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>(); //get sfx audiosource
-        audioSource.PlayOneShot(sfx[clipNumber]); //play sfx by clip number
+        sfxSource.PlayOneShot(sfx[clipNumber]); //play sfx by clip number
     }
 
     public void PlayMusic(int clipNumber)
-    {
-        audioSource = GameObject.Find("Music").GetComponent<AudioSource>(); //get music audiosource
-        audioSource.PlayOneShot(music[clipNumber]); //play music by clip number
+    { 
+        musicSource.PlayOneShot(music[clipNumber]); //play music by clip number
     }
 
     //stops audio
     public void StopSFX()
     {
-        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
-        audioSource.Stop();
+        sfxSource.Stop();
     }
 
+    //stops music
     public void StopMusic()
     {
-        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
-        audioSource.Stop();
+        musicSource.Stop();
     }
 
+    //mutes music
     public void MusicOff()
-    {
-        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
-        audioSource.mute = true;
+    { 
+        musicSource.mute = true;
     }
 
+    //unmutes music
     public void MusicOn()
     {
-        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
-        audioSource.mute = false;
+        musicSource.mute = false;
     }
 
     #endregion

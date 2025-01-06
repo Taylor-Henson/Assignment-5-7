@@ -3023,7 +3023,6 @@ GameObject:
   - component: {fileID: 561273085}
   - component: {fileID: 561273084}
   - component: {fileID: 561273089}
-  - component: {fileID: 561273090}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3137,26 +3136,6 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 55bb0f12f1beba04590b9009e6df3e0a, type: 2}
   sfxSlider: {fileID: 2105642916}
   musicSlider: {fileID: 1359122531}
---- !u!114 &561273090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561273083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7533c2daec43307499b0e3d8cc450656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 663804277}
-  optionsMenu: {fileID: 1498639501}
-  instructionsMenu: {fileID: 188890074}
-  quitMenu: {fileID: 1629029900}
-  audioMenu: {fileID: 886241316}
-  difficultyMenu: {fileID: 1510335281}
-  musicToggle: {fileID: 0}
-  difficulty: Easy
 --- !u!1 &563008738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,7 +4508,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
@@ -5463,7 +5442,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: ChangedSetting
         m_Mode: 1
@@ -5705,7 +5684,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
@@ -6371,7 +6350,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
@@ -6685,7 +6664,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: Back
         m_Mode: 1
@@ -8144,7 +8123,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: ChangedSetting
         m_Mode: 1
@@ -8715,7 +8694,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 561273090}
+      - m_Target: {fileID: 1870364837}
         m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
         m_MethodName: ChangedSetting
         m_Mode: 1

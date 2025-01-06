@@ -22,7 +22,7 @@ public class VolumeSettings : MonoBehaviour
 
     private void Start()
     {
-        //sets slider values to stored keys, if not 1
+        //sets slider values to stored keys, if not 0.5
         musicSlider.value = PlayerPrefs.GetFloat(LevelManager.MUSIC_KEY, 0.5f);
         sfxSlider.value = PlayerPrefs.GetFloat(LevelManager.SFX_KEY, 0.5f);
     }
