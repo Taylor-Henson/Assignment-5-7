@@ -16,6 +16,8 @@ public class FrontEnd : MonoBehaviour
     public Toggle musicToggle;
 
     public string difficulty = "Easy";
+    bool music;
+    int musicInt;
 
     #endregion
 
