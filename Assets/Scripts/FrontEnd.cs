@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FrontEnd : MonoBehaviour
 {    
@@ -12,6 +13,7 @@ public class FrontEnd : MonoBehaviour
     public GameObject quitMenu;
     public GameObject audioMenu;
     public GameObject difficultyMenu;
+    public Toggle musicToggle;
 
     public string difficulty = "Easy";
 
@@ -97,6 +99,19 @@ public class FrontEnd : MonoBehaviour
     {
         PressButton();
         Application.Quit();
+    }
+
+    public void OnPointerClick()
+    {
+        //checks if toggle is on or off and mutes or unmutes audiosources based on that
+        if(musicToggle.isOn)
+        {
+            LevelManager.instance.MusicOn();
+        }
+        else
+        {
+            LevelManager.instance.MusicOff();
+        }
     }
 
     #endregion

@@ -99,6 +99,18 @@ public class LevelManager : MonoBehaviour
         audioSource.Stop();
     }
 
+    public void MusicOff()
+    {
+        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        audioSource.mute = true;
+    }
+
+    public void MusicOn()
+    {
+        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        audioSource.mute = false;
+    }
+
     #endregion
 
     #region PlayerPrefs
@@ -106,8 +118,8 @@ public class LevelManager : MonoBehaviour
     void LoadVolume() // volume saved in volumeSettings
     {
         //sets volume floats to stored keys, if not to 1
-        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
-        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 1f);
+        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 0.5f);
+        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 0.5f);
 
         //sets audio mixer values to the previes floats, converted to log10
         audioMixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
