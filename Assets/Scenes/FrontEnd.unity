@@ -6778,8 +6778,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1870364837}
-        m_TargetAssemblyTypeName: FrontEnd, Assembly-CSharp
+      - m_Target: {fileID: 1870364839}
+        m_TargetAssemblyTypeName: Toggles, Assembly-CSharp
         m_MethodName: OnPointerClick
         m_Mode: 1
         m_Arguments:
@@ -10216,6 +10216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870364838}
   - component: {fileID: 1870364837}
+  - component: {fileID: 1870364839}
   m_Layer: 0
   m_Name: ScriptObject
   m_TagString: Untagged
@@ -10241,7 +10242,6 @@ MonoBehaviour:
   quitMenu: {fileID: 1629029900}
   audioMenu: {fileID: 886241316}
   difficultyMenu: {fileID: 1510335281}
-  musicToggle: {fileID: 1201590983}
   difficulty: 
 --- !u!4 &1870364838
 Transform:
@@ -10258,6 +10258,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1870364839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870364836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50577c8999c602f458f9f61b73759aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myToggle: {fileID: 1201590983}
 --- !u!1 &1877136006
 GameObject:
   m_ObjectHideFlags: 0

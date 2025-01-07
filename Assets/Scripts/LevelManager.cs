@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public AudioClip[] music;
     public AudioClip[] sfx;
 
-    public string difficulty = "Easy";
+    public string difficulty;
 
     //playerprefs volume keys
     public const string MUSIC_KEY = "musicVolume";
@@ -35,11 +35,14 @@ public class LevelManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Difficulty") == true)//if there is a playerpref
         {
+            //print("has key");
             difficulty = PlayerPrefs.GetString("Difficulty");//get it
         }
         else
         {
+            //print("hasnt got key");
             PlayerPrefs.SetString("Difficulty", "Easy");//set to easy
+            difficulty = PlayerPrefs.GetString("Difficulty");
         }
 
         //refernces
@@ -103,13 +106,15 @@ public class LevelManager : MonoBehaviour
 
     //mutes music
     public void MusicOff()
-    { 
+    {
+        //print("muted");
         musicSource.mute = true;
     }
 
     //unmutes music
     public void MusicOn()
     {
+        //print("unmuted");
         musicSource.mute = false;
     }
 
