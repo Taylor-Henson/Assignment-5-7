@@ -21,6 +21,7 @@ public class DummyGame : MonoBehaviour
 
         difficulty.text = "Difficulty: " + LevelManager.instance.difficulty;
     }
+
     private void OnDisable()
     {
         LevelManager.instance.StopMusic();

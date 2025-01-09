@@ -125,6 +125,11 @@ public class FrontEnd : MonoBehaviour
     #region music on/off
     private void Start()
     {
+        Invoke("Play", 0.5f);
+    }
+
+    private void Play()
+    {
         LevelManager.instance.PlayMusic(1); // plays frontend music
     }
 

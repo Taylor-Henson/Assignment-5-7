@@ -89,7 +89,7 @@ public class LevelManager : MonoBehaviour
 
     public void PlayMusic(int clipNumber)
     { 
-        musicSource.PlayOneShot(music[clipNumber]); //play music by clip number
+        musicSource.PlayOneShot(music[clipNumber]); //play music by clip number   
     }
 
     //stops audio
